@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
 import { NavParams, ViewController } from 'ionic-angular';
 
@@ -19,14 +19,15 @@ import { NavParams, ViewController } from 'ionic-angular';
 
 
 export class MapaPage {
-  
-    title: string = 'My first AGM project';
-    lat: number = 51.678418;
-    lng: number = 7.809007;
+
+  title: string = 'My first AGM project';
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   
 
-    constructor( public navParams: NavParams,
-      private viewCtrl: ViewController ) {
+  constructor( public navParams: NavParams,
+    private viewCtrl: ViewController ) {
 let coordsArray = this.navParams.get("coords").split(",");
 this.lat = Number( coordsArray[0].replace("geo:","") );
 this.lng = Number( coordsArray[1] );
@@ -36,6 +37,7 @@ console.log(  this.lat, this.lng );
 cerrar_modal(){
 this.viewCtrl.dismiss();
 }
+
 
 
 

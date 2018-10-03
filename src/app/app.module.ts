@@ -13,7 +13,10 @@ import { HistorialService } from '../providers/historial/historial';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+// Mapas
 import { AgmCoreModule } from '@agm/core';
+
+
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { AgmCoreModule } from '@agm/core';
   ],
 
   imports: [
+    BrowserModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey: 'aquí_la llave_generada'
+      apiKey: 'AIzaSyAlkY_NM790ueg2o12TGHQTp9T6EGO3a8E'
     })
   ],
 
+
   bootstrap: [IonicApp],
+
   entryComponents: [
     MyApp,
     GuardadosPage,
@@ -49,5 +55,7 @@ import { AgmCoreModule } from '@agm/core';
     HistorialService
     
   ]
+  
+
 })
 export class AppModule {}

@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-
-
 import { Injectable } from '@angular/core';
 import { ScanData } from "../../models/scan-data.model";
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { MapaPage } from "../../pages/mapa/mapa";
 import { ModalController } from "ionic-angular";
+
 
 
 /*
@@ -25,6 +23,7 @@ private modalCtrl: ModalController) { }
 	console.log( this._historial );
 	this.abrir_scan(0);
   }
+
 
 
   abrir_scan( index:number){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+
 
 import { ToastController, Platform } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -36,10 +36,13 @@ export class HomePage {
           this._historialService.agregar_historial( barcodeData.text  );
         }
    
-       }, (err) => {
-           console.error("Error: ", err );
-           this.mostrar_mensaje( "Error: " + err );
-       });
+   
+       }
+   , (err) => {
+        console.error("Error: ", err );
+        this.mostrar_mensaje( "Error: " + err );
+    });
+
    
    
       }
