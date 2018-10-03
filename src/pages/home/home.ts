@@ -4,6 +4,9 @@ import { NavController } from 'ionic-angular';
 import { ToastController, Platform } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+import { HistorialService } from "../../providers/historial/historial";
+
+
 
 @Component({
   selector: 'page-home',
@@ -11,11 +14,11 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 })
 export class HomePage {
 
-  constructor(private barcodeScanner: BarcodeScanner,private toastCtrl: ToastController,  private platform: Platform) {
-   
+  constructor( private barcodeScanner: BarcodeScanner,
+    private toastCtrl: ToastController,
+    private platform: Platform,
+    private _historialService:HistorialService) {}
 
-
-      }
     
       scan(){
         if( !this.platform.is('cordova') ){
@@ -28,11 +31,16 @@ export class HomePage {
         console.log("result:", barcodeData.text );
         console.log("format:", barcodeData.format );
         console.log("cancelled:", barcodeData.cancelled );
-        this.mostrar_mensaje( "correcto "+barcodeData.text+" "+barcodeData.format );
+   
+        if( !barcodeData.cancelled && barcodeData.text != null ){
+          this._historialService.agregar_historial( barcodeData.text  );
+        }
+   
        }, (err) => {
            console.error("Error: ", err );
            this.mostrar_mensaje( "Error: " + err );
        });
+   
    
       }
     

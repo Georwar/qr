@@ -10,6 +10,11 @@ import { GuardadosPage, HomePage, MapaPage, TabsPage } from "../pages/index.pagi
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
 import { HistorialService } from '../providers/historial/historial';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,9 +25,12 @@ import { HistorialService } from '../providers/historial/historial';
   ],
 
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'aquí_la llave_generada'
+    })
   ],
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -37,7 +45,9 @@ import { HistorialService } from '../providers/historial/historial';
     SplashScreen,
     BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    InAppBrowser,
     HistorialService
+    
   ]
 })
 export class AppModule {}
