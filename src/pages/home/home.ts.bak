@@ -32,14 +32,9 @@ export class HomePage {
         console.log("format:", barcodeData.format );
         console.log("cancelled:", barcodeData.cancelled );
    
-       if( !barcodeData.cancelled && barcodeData.text != null ){
-       console.log("recibido:", barcodeData.text );
-         this.mostrar_mensaje( "Recibido "+barcodeData.text );
-       this._historialService.agregar_historial( barcodeData.text  );
-     }else{
-       console.log("cancelado:");
-        this.mostrar_mensaje( "Cancelado" );
-     }
+        if( !barcodeData.cancelled && barcodeData.text != null ){
+          this._historialService.agregar_historial( barcodeData.text  );
+        }
    
    
        }

@@ -15,7 +15,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 // Mapas
 import { AgmCoreModule } from '@agm/core';
-import { Contacts } from '@ionic-native/contacts';
 
 
 
@@ -53,7 +52,6 @@ import { Contacts } from '@ionic-native/contacts';
     BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
-	Contacts,
     HistorialService
     
   ]

@@ -17,7 +17,7 @@ export class GuardadosPage {
   
 
   ionViewDidLoad() {
-    
+    console.log('ionViewDidLoad GuardadosPage');
     this.historial = this._historialService.cargar_historial();
   }
 
